@@ -11,6 +11,7 @@
 #import "AmountRequest.h"
 #import "AmountModel.h"
 #import "AmountCell.h"
+#import "titleView.h"
 
 @interface AmountContrastVC ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -23,6 +24,9 @@
 @property (nonatomic, strong) NSString *endTime;
 //空白页
 @property (nonatomic, strong) CustomCommonEmptyView *emptyView;
+@property (nonatomic, strong) titleView *titleV;
+
+
 @end
 
 @implementation AmountContrastVC
@@ -53,9 +57,11 @@
     self.searchBar.backgroundImage = [[UIImage alloc] init];
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"用户名";
+    
+    self.titleV = [[titleView alloc] initWithFrame:CGRectMake(0, self.searchBar.bottom +FitheightRealValue(10), CYTMainScreen_WIDTH, FitheightRealValue(40)) titles:@[@"用户名",@"日流量",@"日液位变化",@"差值"]];
 
     [self.contentView addSubview:self.searchBar];
-    
+    [self.contentView addSubview:self.titleV];
     [self.contentView addSubview:self.tableView];
 }
 
@@ -159,7 +165,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(90) - 49 - 64) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.titleV.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(130) - 49 - 64) style:UITableViewStylePlain];
         [_tableView registerClass:[AmountCell class] forCellReuseIdentifier:@"cell"];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

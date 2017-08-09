@@ -13,7 +13,7 @@
 #import "TankEstimatedAmountRequest.h"
 
 #import "TankMDetailCell.h"
-
+#import "titleView.h"
 
 @interface TankMonitoringDetailVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -25,6 +25,8 @@
 @property (nonatomic, strong) TankMonitoringDetailModel *data;
 
 @property (nonatomic, strong) TankMDetailTopView *topView;
+@property (nonatomic, strong) titleView *titleV;
+
 
 @end
 
@@ -50,9 +52,11 @@
     [self.topView callBack:^(NSString *date) {
         [self.tankMonitoringDetailRequest loadDataWithHUDOnView:self.contentView];
     }];
-    
+    self.titleV = [[titleView alloc] initWithFrame:CGRectMake(0, self.topView.bottom +FitheightRealValue(10), CYTMainScreen_WIDTH, FitheightRealValue(40)) titles:@[@"总流量",@"小时流量",@"液位",@"气体体积"]];
     [self.contentView addSubview:self.topView];
+    [self.contentView addSubview:self.titleV];
     [self.contentView addSubview:self.tableView];
+    
 
 }
 
@@ -126,7 +130,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.topView.bottom + FitheightRealValue(10), CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(150) - 64) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.titleV.bottom , CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(190) - 64) style:UITableViewStylePlain];
         [_tableView registerClass:[TankMDetailCell class] forCellReuseIdentifier:@"cell"];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

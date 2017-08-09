@@ -23,7 +23,6 @@
     return self;
 }
 
-
 - (void)buildCellView {
     
     self.contentView.backgroundColor = WHITECOLOR;
@@ -36,15 +35,16 @@
         make.height.mas_equalTo(FitheightRealValue(25));
     }];
     
-    //累计用量
+    //小时用量
     [self.contentView addSubview:self.cumulativeDosage];
     [self.cumulativeDosage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.enterPriseName.mas_bottom).offset(0);
         make.left.equalTo(self.contentView.mas_left).offset(FitwidthRealValue(13));
         make.height.mas_equalTo(FitheightRealValue(25));
+        make.width.mas_equalTo(CYTMainScreen_WIDTH / 3 + FitwidthRealValue(10));
     }];
     
-    //液位
+    //剩余时间
     [self.contentView addSubview:self.liquidLevel];
     [self.liquidLevel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.enterPriseName.mas_bottom).offset(0);

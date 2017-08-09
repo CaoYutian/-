@@ -12,6 +12,7 @@
 #import "ReconciliationModel.h"
 #import "ReconTCell.h"
 #import "HttpTools.h"
+#import "titleView.h"
 
 @interface ReconciliationVC ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -25,6 +26,7 @@
 
 @property (nonatomic, strong) NSMutableArray *bigArr;
 @property (nonatomic, strong) NSString *signStr;
+@property (nonatomic, strong) titleView *titleV;
 
 
 //空白页
@@ -64,6 +66,9 @@
     self.searchBar.placeholder = @"车牌号/用户名";
     [self.contentView addSubview:self.searchBar];
     
+    self.titleV = [[titleView alloc] initWithFrame:CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40)) titles:@[@"车牌号",@"用户名",@"卸液量",@"液位误差"]];
+
+    [self.contentView addSubview:self.titleV];
     [self.contentView addSubview:self.tableView];
     [self.contentView addSubview:self.submitBtn];
     
@@ -241,28 +246,27 @@
 
 #pragma mark scroview的协议代理
 //向上滑是正值，向下滑动是负值
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    if (velocity.y > 0 ) {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.navBar.frame = CGRectMake(0, -64, CYTMainScreen_WIDTH, 64);
-            self.chooseTime.frame = CGRectMake(0, 0, CYTMainScreen_WIDTH, FitheightRealValue(50));
-            self.searchBar.frame = CGRectMake(0, self.chooseTime.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40));
-            self.tableView.frame = CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(140) - 49);
-        }];
-    }else if (velocity.y <= 0) {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.navBar.frame = CGRectMake(0, 0, CYTMainScreen_WIDTH, 64);
-            self.chooseTime.frame = CGRectMake(0, 44, CYTMainScreen_WIDTH, FitheightRealValue(50));
-            self.searchBar.frame = CGRectMake(0, self.chooseTime.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40));
-            self.tableView.frame = CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(140) - 49 - 64);
-        }];
-    }
-    
-}
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+//    if (velocity.y > 0 ) {
+//        [UIView animateWithDuration:0.25 animations:^{
+//            self.navBar.frame = CGRectMake(0, -64, CYTMainScreen_WIDTH, 64);
+//            self.chooseTime.frame = CGRectMake(0, 0, CYTMainScreen_WIDTH, FitheightRealValue(50));
+//            self.searchBar.frame = CGRectMake(0, self.chooseTime.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40));
+//            self.tableView.frame = CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(140) - 49);
+//        }];
+//    }else if (velocity.y <= 0) {
+//        [UIView animateWithDuration:0.25 animations:^{
+//            self.navBar.frame = CGRectMake(0, 0, CYTMainScreen_WIDTH, 64);
+//            self.chooseTime.frame = CGRectMake(0, 44, CYTMainScreen_WIDTH, FitheightRealValue(50));
+//            self.searchBar.frame = CGRectMake(0, self.chooseTime.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40));
+//            self.tableView.frame = CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(140) - 49 - 64);
+//        }];
+//    }
+//}
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(140) - 49 - 64) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.titleV.bottom, CYTMainScreen_WIDTH, CYTMainScreen_HEIGHT - FitheightRealValue(180) - 49 - 64) style:UITableViewStylePlain];
         [_tableView registerClass:[ReconTCell class] forCellReuseIdentifier:@"cell"];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
