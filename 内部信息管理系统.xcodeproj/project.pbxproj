@@ -42,6 +42,11 @@
 		AE26B7741F1383A100EEC4D6 /* AppNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26B7731F1383A100EEC4D6 /* AppNavigationController.m */; };
 		AE26B7771F13841600EEC4D6 /* AppTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26B7761F13841600EEC4D6 /* AppTabBarController.m */; };
 		AE26B7791F13853C00EEC4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26B7781F13853C00EEC4D6 /* Assets.xcassets */; };
+		AE3A85931F5D2F5400091959 /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A85921F5D2F5400091959 /* CommonUtility.m */; };
+		AE3A859D1F5D2FE600091959 /* LineDashPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A85961F5D2FE600091959 /* LineDashPolyline.m */; };
+		AE3A859E1F5D2FE600091959 /* MANaviAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A85981F5D2FE600091959 /* MANaviAnnotation.m */; };
+		AE3A859F1F5D2FE600091959 /* MANaviPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A859A1F5D2FE600091959 /* MANaviPolyline.m */; };
+		AE3A85A01F5D2FE600091959 /* MANaviRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A859C1F5D2FE600091959 /* MANaviRoute.m */; };
 		AE4FDC091F15EE5A00988A45 /* TankMonitoringVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FDC081F15EE5A00988A45 /* TankMonitoringVC.m */; };
 		AE4FDC0C1F15EE7500988A45 /* ReconciliationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FDC0B1F15EE7500988A45 /* ReconciliationVC.m */; };
 		AE4FDC0F1F15EE8D00988A45 /* AmountContrastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FDC0E1F15EE8D00988A45 /* AmountContrastVC.m */; };
@@ -173,6 +178,16 @@
 		AE26B7751F13841600EEC4D6 /* AppTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTabBarController.h; sourceTree = "<group>"; };
 		AE26B7761F13841600EEC4D6 /* AppTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTabBarController.m; sourceTree = "<group>"; };
 		AE26B7781F13853C00EEC4D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE3A85911F5D2F5400091959 /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = "<group>"; };
+		AE3A85921F5D2F5400091959 /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = "<group>"; };
+		AE3A85951F5D2FE600091959 /* LineDashPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDashPolyline.h; sourceTree = "<group>"; };
+		AE3A85961F5D2FE600091959 /* LineDashPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineDashPolyline.m; sourceTree = "<group>"; };
+		AE3A85971F5D2FE600091959 /* MANaviAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviAnnotation.h; sourceTree = "<group>"; };
+		AE3A85981F5D2FE600091959 /* MANaviAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviAnnotation.m; sourceTree = "<group>"; };
+		AE3A85991F5D2FE600091959 /* MANaviPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviPolyline.h; sourceTree = "<group>"; };
+		AE3A859A1F5D2FE600091959 /* MANaviPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviPolyline.m; sourceTree = "<group>"; };
+		AE3A859B1F5D2FE600091959 /* MANaviRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviRoute.h; sourceTree = "<group>"; };
+		AE3A859C1F5D2FE600091959 /* MANaviRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviRoute.m; sourceTree = "<group>"; };
 		AE4FDC071F15EE5A00988A45 /* TankMonitoringVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TankMonitoringVC.h; sourceTree = "<group>"; };
 		AE4FDC081F15EE5A00988A45 /* TankMonitoringVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TankMonitoringVC.m; sourceTree = "<group>"; };
 		AE4FDC0A1F15EE7500988A45 /* ReconciliationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReconciliationVC.h; sourceTree = "<group>"; };
@@ -450,6 +465,7 @@
 		AE26B7201F13600200EEC4D6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				AE3A85901F5D2F3B00091959 /* MapManaager */,
 				AE26B75D1F136E9A00EEC4D6 /* UserManager */,
 			);
 			path = Managers;
@@ -616,6 +632,31 @@
 				AE26B75F1F136EA700EEC4D6 /* UserManager.m */,
 			);
 			path = UserManager;
+			sourceTree = "<group>";
+		};
+		AE3A85901F5D2F3B00091959 /* MapManaager */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A85941F5D2FE600091959 /* model */,
+				AE3A85911F5D2F5400091959 /* CommonUtility.h */,
+				AE3A85921F5D2F5400091959 /* CommonUtility.m */,
+			);
+			path = MapManaager;
+			sourceTree = "<group>";
+		};
+		AE3A85941F5D2FE600091959 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A85951F5D2FE600091959 /* LineDashPolyline.h */,
+				AE3A85961F5D2FE600091959 /* LineDashPolyline.m */,
+				AE3A85971F5D2FE600091959 /* MANaviAnnotation.h */,
+				AE3A85981F5D2FE600091959 /* MANaviAnnotation.m */,
+				AE3A85991F5D2FE600091959 /* MANaviPolyline.h */,
+				AE3A859A1F5D2FE600091959 /* MANaviPolyline.m */,
+				AE3A859B1F5D2FE600091959 /* MANaviRoute.h */,
+				AE3A859C1F5D2FE600091959 /* MANaviRoute.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		AE4FDC021F15ED9000988A45 /* AmountContrast（用量对比） */ = {
@@ -1030,9 +1071,11 @@
 				AE4FDC721F17172B00988A45 /* UIView+frame.m in Sources */,
 				AE4FDC761F17173A00988A45 /* UIView+DCAnimationKit.m in Sources */,
 				AE1B22AF1F25EA0500AC70EE /* UIView+TransitionAnimation.m in Sources */,
+				AE3A859F1F5D2FE600091959 /* MANaviPolyline.m in Sources */,
 				AE4FDC231F161FFA00988A45 /* DeliveryTimeView.m in Sources */,
 				AE26B7561F136ACC00EEC4D6 /* LoginRequest.m in Sources */,
 				AE6EBFB81F21F31A0032CAB3 /* TankMonitoringDetailModel.m in Sources */,
+				AE3A85931F5D2F5400091959 /* CommonUtility.m in Sources */,
 				AE26B7711F1380AC00EEC4D6 /* BaseViewController.m in Sources */,
 				AE4FDC511F170CA000988A45 /* ReconciliationModel.m in Sources */,
 				AE4FDC1C1F160BE000988A45 /* lngMonitoringModel.m in Sources */,
@@ -1049,6 +1092,7 @@
 				AE4FDC6D1F17172B00988A45 /* NSObject+Additions.m in Sources */,
 				AE5BC6261F146CE900787558 /* PopUpPickerView.m in Sources */,
 				AE1B22AC1F25E4E400AC70EE /* CommonUtils.m in Sources */,
+				AE3A859D1F5D2FE600091959 /* LineDashPolyline.m in Sources */,
 				AE6EBFB51F21E1270032CAB3 /* TankMDetailTopView.m in Sources */,
 				AE26B73C1F13627600EEC4D6 /* BaseTableViewDataSource.m in Sources */,
 				AE9007D41F2990FF00C7D5AB /* KeyChainManager.m in Sources */,
@@ -1090,12 +1134,14 @@
 				AE4FDC4E1F17082500988A45 /* ReconTCell.m in Sources */,
 				AE1FE3D21F343847008FFF0F /* LoginTranslation.m in Sources */,
 				AE4FDC711F17172B00988A45 /* UIView+Additions.m in Sources */,
+				AE3A85A01F5D2FE600091959 /* MANaviRoute.m in Sources */,
 				AEE84B1B1F32F4330014B0B6 /* DosageACell.m in Sources */,
 				AE26B73A1F13627600EEC4D6 /* BaseTableView.m in Sources */,
 				AE1B22A11F25DA6300AC70EE /* OperaVC.m in Sources */,
 				AE4FDC6E1F17172B00988A45 /* UIColor+ImageGetColor.m in Sources */,
 				AE0B7D181F3AB5DE00D1656D /* titleView.m in Sources */,
 				AE4FDC0C1F15EE7500988A45 /* ReconciliationVC.m in Sources */,
+				AE3A859E1F5D2FE600091959 /* MANaviAnnotation.m in Sources */,
 				AE6EBFBF1F21F9ED0032CAB3 /* TankMDetailCell.m in Sources */,
 				AE26B74A1F1362EF00EEC4D6 /* PageAPIRequest.m in Sources */,
 				AE26B7271F13600200EEC4D6 /* AppDelegate.m in Sources */,

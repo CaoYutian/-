@@ -35,6 +35,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "OperaVC.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()
 
@@ -56,6 +57,11 @@
     }else {
         [self loadLoginVC];
     }
+    
+    //------------高德地图------------
+    [[AMapServices sharedServices] setEnableHTTPS:YES];
+    [AMapServices sharedServices].apiKey = GD_KEY;
+    
     return YES;
 }
 

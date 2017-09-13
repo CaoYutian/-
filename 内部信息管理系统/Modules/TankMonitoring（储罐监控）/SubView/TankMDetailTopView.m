@@ -108,7 +108,7 @@
     self.instantaneousDelivery.text = [NSString stringWithFormat:@"瞬时用量：%.2fm³/小时",[model.vl_hour doubleValue]];
     self.currentLevel.text = [NSString stringWithFormat:@"当前液位：%.2fmm",[model.f_yw doubleValue]];
     self.volumeOfGas.text = [NSString stringWithFormat:@"气体体积：%.2fm³",[model.qttj doubleValue]];
-    self.timeRemaining.text = [NSString stringWithFormat:@"预估剩余时间：%.2f小时",[model.time doubleValue]];
+    self.timeRemaining.text = [NSString stringWithFormat:@"预估剩余时间：%.2f小时",[model.yugu_time doubleValue]];
 }
 
 - (NSString *)getTimeNow {

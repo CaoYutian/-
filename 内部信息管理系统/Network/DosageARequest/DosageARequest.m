@@ -7,11 +7,12 @@
 //
 
 #import "DosageARequest.h"
+#import "DosageAModel.h"
 
 @implementation DosageARequest
 
 - (NSString *)requestPath {
-    return @"";
+    return Fenxie_index;
 }
 
 - (APIManagerRequestType)requestType {
@@ -25,9 +26,21 @@
 @end
 
 @implementation DosageAResponse
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"data" : [DosageAAllModel class]};
+}
+
+@end
+
+@implementation DosageAAllModel
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [self yy_modelCopy];
+}
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"data" : [DosageAModel class]};
+    return @{@"data" : [DosageAModel class],
+             @"need" : [dischargPlanModel class],};
 }
 
 @end

@@ -8,6 +8,8 @@ pod 'MJRefresh', '~> 3.1.0'
 pod 'Masonry', '~> 1.0.0'
 pod 'Toast', '2.4'
 pod 'pop'
+pod 'AMap3DMap'
+pod 'AMapSearch'
 pod 'MJExtension', '~> 3.0.10'
 pod 'IQKeyboardManager', '~> 4.0.7'
 end

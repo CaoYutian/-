@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString *row_number;
 @property (nonatomic, copy) NSString *short_name;
 @property (nonatomic, copy) NSString *t_yw;
-@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *yugu_time;
 @property (nonatomic, copy) NSString *vl_hour;
 @property (nonatomic, copy) NSString *vl_tody;
 

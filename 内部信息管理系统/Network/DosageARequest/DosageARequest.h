@@ -7,14 +7,19 @@
 //
 
 #import "APIRequest.h"
-#import "DosageAModel.h"
 
-@interface DosageARequest : APIRequest
+@interface DosageARequest : APIRequest <APIManager>
+
+@end
+
+@interface DosageAAllModel: NSObject
+
+@property (nonatomic, strong) NSArray *need;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
 @interface DosageAResponse : BaseResponse
-@property (nonatomic, strong) NSArray *data;
-
+@property (nonatomic, strong) DosageAAllModel *data;
 
 @end

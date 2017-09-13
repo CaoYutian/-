@@ -14,8 +14,10 @@ typedef void(^AlertResult)(NSInteger index);
 @interface ActionAlertView : UIView
 
 @property(nonatomic,copy) AlertResult resultIndex;
+/** 输入框 */
+@property(nonatomic,strong) UITextField *InputBox;
 
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message sureBtn:(NSString *)sureTitle cancleBtn:(NSString *)cancleTitle;
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message placeholder:(NSString *)placeholder sureBtn:(NSString *)sureTitle cancleBtn:(NSString *)cancleTitle;
 - (void)showAlertView;
 
 

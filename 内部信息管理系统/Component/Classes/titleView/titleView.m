@@ -14,13 +14,10 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        
-        [self SetUpUI:titles];
-        
+        self.backgroundColor = WHITECOLOR;
+        [self SetUpUI:titles];        
     }
     return self;
-    
 }
 
 - (void)SetUpUI:(NSArray *)titles {
@@ -28,7 +25,7 @@
     for (int i = 0; i < titles.count; i++) {
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(i * CYTMainScreen_WIDTH / titles.count, 0, CYTMainScreen_WIDTH / titles.count, FitheightRealValue(39));
+        btn.frame = CGRectMake(i * self.width / titles.count, 0, self.width / titles.count, FitheightRealValue(39));
         [btn setTitle:titles[i] forState:UIControlStateNormal];
         btn.titleLabel.font = FitFont(14);
         [btn setTitleColor:NavigationBarBackgroundColor forState:UIControlStateNormal];
@@ -46,7 +43,6 @@
 
 #pragma mark - 改变按钮状态
 - (void)changeTopBtn:(UIButton *)sender {
- 
     
 }
 

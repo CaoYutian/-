@@ -19,6 +19,7 @@
 @property(nonatomic,strong) UILabel *titleLbl;
 /** 内容 */
 @property(nonatomic,strong) UILabel *msgLbl;
+
 /** 确认按钮 */
 @property(nonatomic,strong) UIButton *sureBtn;
 /** 取消按钮 */
@@ -33,7 +34,7 @@
 
 @implementation ActionAlertView
 
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message sureBtn:(NSString *)sureTitle cancleBtn:(NSString *)cancleTitle{
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message placeholder:(NSString *)placeholder sureBtn:(NSString *)sureTitle cancleBtn:(NSString *)cancleTitle{
     
     if (self = [super init]) {
         
@@ -67,9 +68,23 @@
             self.msgLbl.frame = self.titleLbl?CGRectMake((AlertW-msgW)/2, CGRectGetMaxY(self.titleLbl.frame)+MARGIN_SPACE, msgW, msgH):CGRectMake((AlertW-msgW)/2, 2*MARGIN_SPACE, msgW, msgH);
         }
         
+        if (placeholder) {
+            self.InputBox = [self getAdaptiveTextF:CGRectMake(MARGIN_SPACE, CGRectGetMaxY(self.titleLbl.frame)+MARGIN_SPACE, AlertW-2*MARGIN_SPACE, 20) contentStr:placeholder];
+            self.InputBox.textAlignment = NSTextAlignmentCenter;
+            [self.alertView addSubview:self.InputBox];
+            CGFloat msgW = self.InputBox.bounds.size.width;
+            CGFloat msgH = self.InputBox.bounds.size.height;
+            self.InputBox.frame = self.InputBox?CGRectMake((AlertW-msgW)/2, CGRectGetMaxY(self.InputBox.frame)+MARGIN_SPACE, msgW, msgH):CGRectMake((AlertW-msgW)/2, 2*MARGIN_SPACE, msgW, msgH);
+        }
+        
         // 横线
         self.lineView = [[UIView alloc] init];
-        self.lineView.frame = self.msgLbl?CGRectMake(0, CGRectGetMaxY(self.msgLbl.frame)+2*MARGIN_SPACE, AlertW, 1):CGRectMake(0, CGRectGetMaxY(self.titleLbl.frame)+2*MARGIN_SPACE, AlertW, 1);
+        if (placeholder) {
+                  self.lineView.frame = self.InputBox?CGRectMake(0, CGRectGetMaxY(self.InputBox.frame)+2*MARGIN_SPACE, AlertW, 1):CGRectMake(0, CGRectGetMaxY(self.titleLbl.frame)+2*MARGIN_SPACE, AlertW, 1);
+        }else {
+            self.lineView.frame = self.msgLbl?CGRectMake(0, CGRectGetMaxY(self.msgLbl.frame)+2*MARGIN_SPACE, AlertW, 1):CGRectMake(0, CGRectGetMaxY(self.titleLbl.frame)+2*MARGIN_SPACE, AlertW, 1);
+        }
+
         self.lineView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.6];
         [self.alertView addSubview:self.lineView];
         
@@ -187,6 +202,21 @@
     [contentLbl sizeToFit];
     
     return contentLbl;
+}
+
+- (UITextField *)getAdaptiveTextF:(CGRect)rect contentStr:(NSString *)contentStr {
+    UITextField *inputBox = [[UITextField alloc] initWithFrame:rect];
+    inputBox.font = [UIFont systemFontOfSize:15.0];
+    inputBox.placeholder = contentStr;
+//    NSMutableAttributedString *mAttrStr = [[NSMutableAttributedString alloc] initWithString:contentStr];
+//    NSMutableParagraphStyle *mParaStyle = [[NSMutableParagraphStyle alloc] init];
+//    mParaStyle.lineBreakMode = NSLineBreakByCharWrapping;
+//    [mParaStyle setLineSpacing:3.0];
+//    [mAttrStr addAttribute:NSParagraphStyleAttributeName value:mParaStyle range:NSMakeRange(0,[contentStr length])];
+//    [inputBox setAttributedText:mAttrStr];
+//    [inputBox sizeToFit];
+    
+    return inputBox;
 }
 
 #pragma mark - 弹出

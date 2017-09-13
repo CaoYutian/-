@@ -128,11 +128,18 @@
     fixelW = CGImageGetWidth(image.CGImage);
     fixelH = CGImageGetHeight(image.CGImage);
     CGFloat PicProportion = fixelW / fixelH;
-
-    self.topPic.width = FitheightRealValue(240) * PicProportion;
+    
+    if (PicProportion > 1) {
+        self.topPic.width = FitwidthRealValue(260);
+        self.topPic.height = FitheightRealValue(240) / PicProportion;
+    }else {
+        self.topPic.width = FitheightRealValue(240) * PicProportion;
+        self.topPic.height = FitwidthRealValue(260);
+    }
     self.topPic.centerX = self.view.centerX;
     
     self.topPic.image = image;
+    self.topPic.contentMode = UIViewContentModeScaleAspectFit;
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     //判断图片是不是png格式的文件
@@ -145,6 +152,9 @@
         UIImage *imagenew = [self imageWithImageSimple:image scaledToSize:CGSizeMake(360, 640)];
         self.imageData = UIImageJPEGRepresentation(imagenew, 0.5);
     }
+    
+    self.InfoView.frame  = CGRectMake(0, self.topPic.bottom + FitheightRealValue(20), CYTMainScreen_WIDTH, FitheightRealValue(153));
+    self.submitBtn.frame = CGRectMake(FitwidthRealValue(20), self.InfoView.bottom + FitheightRealValue(20), CYTMainScreen_WIDTH - FitwidthRealValue(40), FitheightRealValue(50));
     
 }
 
@@ -166,7 +176,7 @@
 
 #pragma mark 提交
 - (void)submitAction {
-    ActionAlertView *alertView = [[ActionAlertView alloc] initWithTitle:@"过磅单是否提交" message:@"过磅单是否提交吗?" sureBtn:@"确定" cancleBtn:@"取消"];
+    ActionAlertView *alertView = [[ActionAlertView alloc] initWithTitle:@"过磅单是否提交" message:@"过磅单是否提交吗?" placeholder:nil sureBtn:@"确定" cancleBtn:@"取消"];
     alertView.resultIndex = ^(NSInteger index){
         if (index == 2) {
             [self upDateHeadIcon:self.topPic.image];
@@ -181,7 +191,7 @@
 
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     _file = [UIImage imageJPEGRepresentationForImage:photo maxSize:1000000];
-    
+
     [dict setObject:self.carIdTf.text forKey:@"car_id"];
     [dict setObject:self.shortNameTf.text forKey:@"short_name"];
     [dict setObject:self.xclTf.text forKey:@"xcl"];
@@ -201,6 +211,9 @@
     }];
     [self.HD hideAnimated:YES];
 
+    UITextField *tf = [[UITextField alloc] init];
+    tf.delegate = self;
+    
 }
 
 - (void)exitAction {

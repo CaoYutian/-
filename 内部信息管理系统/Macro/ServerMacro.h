@@ -30,13 +30,15 @@
 #define Login_Url                       @"index.php/Api/Loginapi/login"
 
 
-//--------------------- 首页---------------------
+//--------------------- 内控 ---------------------
 #define CXJK_Home                       @"index.php/Api/Index/index"   //储蓄监控
 #define CXJK_Home_detail                @"index.php/Api/Index/detail"  //储蓄详情
 #define CXJK_Home_detail_EAmount        @"index.php/Api/Index/editvl"  //储蓄详情修改预估用量
 #define Contrast_index                  @"index.php/Api/Contrast/index"//用量对比
 #define Caigouduizhang_index            @"index.php/Api/Caigouduizhang/index"//采购对账
 #define Caigouduizhang_save             @"index.php/Api/Caigouduizhang/save" //采购提交
+#define Fenxie_index                    @"index.php/Api/Fenxie/index"   //用量分析
+
 
 //--------------------- 上传榜单 ---------------------
 #define Photo_upload                    @"index.php/Api/Photo/upload"  //上传榜单

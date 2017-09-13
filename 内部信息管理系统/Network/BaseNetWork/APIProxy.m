@@ -29,22 +29,19 @@
     return sharedInstance;
 }
 
-- (NSInteger)callAPIWithRequestType:(APIManagerRequestType)requestType params:(NSDictionary *)params requestPath:(NSString *)requestPath uploadBlock:(void (^)(id <AFMultipartFormData> formData))uploadBlock success:(APICallback)success fail:(APICallback)fail
-{
+- (NSInteger)callAPIWithRequestType:(APIManagerRequestType)requestType params:(NSDictionary *)params requestPath:(NSString *)requestPath uploadBlock:(void (^)(id <AFMultipartFormData> formData))uploadBlock success:(APICallback)success fail:(APICallback)fail {
     NSString *urlString = [NSString stringWithFormat:@"%@%@",BaseUrl,requestPath];
     NSNumber *requestId = [self callApi:urlString requestType:requestType params:params uploadBlock:uploadBlock success:success fail:fail];
     return [requestId integerValue];
 }
 
-- (void)cancelRequestWithRequestID:(NSNumber *)requestID
-{
+- (void)cancelRequestWithRequestID:(NSNumber *)requestID {
     NSURLSessionDataTask *dataTask = self.dispatchTable[requestID];
     [dataTask cancel];
     [self.dispatchTable removeObjectForKey:requestID];
 }
 
-- (void)cancelRequestWithRequestIDList:(NSArray *)requestIDList
-{
+- (void)cancelRequestWithRequestIDList:(NSArray *)requestIDList {
     for (NSNumber *requestId in requestIDList) {
         [self cancelRequestWithRequestID:requestId];
     }

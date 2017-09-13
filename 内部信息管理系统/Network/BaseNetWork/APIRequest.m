@@ -84,8 +84,7 @@
     return requestId;
 }
 
-- (NSInteger)loadDataWithParams:(NSDictionary *)params
-{
+- (NSInteger)loadDataWithParams:(NSDictionary *)params {
     NSInteger requestId = 0;
     if ([self isReachable]) {
         if ([self.child respondsToSelector:@selector(requestSerializer)]) {
@@ -143,8 +142,7 @@
     }
 }
 
-- (void)failedOnCallingAPI:(APIResponse *)response withErrorType:(APIManagerErrorType)errorType
-{
+- (void)failedOnCallingAPI:(APIResponse *)response withErrorType:(APIManagerErrorType)errorType {
     if (self.hudSuperView) {
         [MBProgressHUD hideLoadingHUD];
     }

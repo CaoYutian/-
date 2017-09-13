@@ -33,7 +33,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.contentView.mas_left).offset(FitwidthRealValue(13));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo(CYTMainScreen_WIDTH / 3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     //日用量
@@ -42,7 +42,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.userName.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH * 2/3 - FitwidthRealValue(56))/3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     //剩余吨位
@@ -51,7 +51,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.dailyDosage.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH * 2/3 - FitwidthRealValue(56))/3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     //百分比
@@ -60,7 +60,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.right.equalTo(self.contentView.mas_right).offset(-FitwidthRealValue(13));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH * 2/3 - FitwidthRealValue(56))/3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     self.line = [[UIView alloc] init];
@@ -77,10 +77,10 @@
     
     DosageAModel *model = (DosageAModel *)item;
     
-    self.userName.text = model.all_name;
-    self.dailyDosage.text = [NSString stringWithFormat:@"%.2fm³",[model.vl doubleValue]];
-    self.remainNum.text = [NSString stringWithFormat:@"%.2f",[model.yw_change doubleValue]];
-    self.percentage.text = [NSString stringWithFormat:@"%.2f",[model.cz doubleValue]];
+    self.userName.text = model.short_name;
+    self.dailyDosage.text = [NSString stringWithFormat:@"%.2fm³",[model.agv_vl doubleValue]];
+    self.remainNum.text = [NSString stringWithFormat:@"%.2f吨",[model.t_yw doubleValue]];
+    self.percentage.text = [NSString stringWithFormat:@"%.2f%@",[model.t_yw doubleValue] / 22 * 100,@"%"];
 }
 
 - (UILabel *)userName {
@@ -101,6 +101,7 @@
         _dailyDosage.lineBreakMode = NSLineBreakByCharWrapping;
         _dailyDosage.numberOfLines = 0;
         _dailyDosage.textColor = [UIColor grayColor];
+        _dailyDosage.textAlignment = NSTextAlignmentCenter;
     }
     return _dailyDosage;
 }
@@ -112,6 +113,7 @@
         _remainNum.lineBreakMode = NSLineBreakByCharWrapping;
         _remainNum.numberOfLines = 0;
         _remainNum.textColor = [UIColor grayColor];
+        _remainNum.textAlignment = NSTextAlignmentCenter;
     }
     return _remainNum;
 }
@@ -123,6 +125,7 @@
         _percentage.lineBreakMode = NSLineBreakByCharWrapping;
         _percentage.numberOfLines = 0;
         _percentage.textColor = [UIColor grayColor];
+        _percentage.textAlignment = NSTextAlignmentCenter;
     }
     return _percentage;
 }
@@ -146,14 +149,13 @@
 - (void)buildCellView{
     
     self.contentView.backgroundColor = WHITECOLOR;
-    
     //槽车
     [self.contentView addSubview:self.lngCar];
     [self.lngCar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.contentView.mas_left).offset(FitwidthRealValue(13));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 5);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(66)) / 5);
     }];
     
     //液源
@@ -162,7 +164,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.lngCar.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 5);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(66)) / 5);
     }];
     
     //卸液点1
@@ -171,7 +173,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.liquidSource.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 5);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(66)) / 5);
     }];
     
     //卸液点2
@@ -180,7 +182,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.address1.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 5);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(66)) / 5);
     }];
     
     //卸液点3
@@ -189,7 +191,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.address2.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 5);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(66)) / 5);
     }];
     
     self.line = [[UIView alloc] init];
@@ -206,12 +208,29 @@
     
     dischargPlanModel *model = (dischargPlanModel *)item;
     
-    self.lngCar.text = model.lngCar;
-    self.liquidSource.text = model.liquidSource;
-    self.address1.text = model.address1;
-    self.address2.text = model.address2;
-    self.address3.text = model.address3;
-
+    self.lngCar.text = model.dischargDataArr[0][@"qz_id"];
+    self.liquidSource.text = model.dischargDataArr[0][@"short_name"];
+    
+    switch (model.dischargDataArr.count) {
+        case 1:
+            self.address1.text = model.dischargDataArr[model.dischargDataArr.count - 1][@"short_name"];
+            self.address2.text = @"暂无";
+            self.address3.text = @"暂无";
+            break;
+            
+        case 2:
+            self.address1.text = model.dischargDataArr[model.dischargDataArr.count - 2][@"short_name"];
+            self.address2.text = model.dischargDataArr[model.dischargDataArr.count - 1][@"short_name"];
+            self.address3.text = @"暂无";
+            break;
+            
+        case 3:
+            self.address1.text = model.dischargDataArr[model.dischargDataArr.count - 3][@"short_name"];
+            self.address2.text = model.dischargDataArr[model.dischargDataArr.count - 2][@"short_name"];
+            self.address3.text = model.dischargDataArr[model.dischargDataArr.count - 1][@"short_name"];
+            break;
+    }
+    
 }
 
 - (UILabel *)lngCar {
@@ -221,6 +240,8 @@
         _lngCar.lineBreakMode = NSLineBreakByCharWrapping;
         _lngCar.numberOfLines = 0;
         _lngCar.textColor = [UIColor grayColor];
+        _lngCar.textAlignment = NSTextAlignmentCenter;
+
     }
     return _lngCar;
 }
@@ -232,6 +253,8 @@
         _liquidSource.lineBreakMode = NSLineBreakByCharWrapping;
         _liquidSource.numberOfLines = 0;
         _liquidSource.textColor = [UIColor grayColor];
+        _liquidSource.textAlignment = NSTextAlignmentCenter;
+
     }
     return _liquidSource;
 }
@@ -243,6 +266,7 @@
         _address1.lineBreakMode = NSLineBreakByCharWrapping;
         _address1.numberOfLines = 0;
         _address1.textColor = [UIColor grayColor];
+        _address1.textAlignment = NSTextAlignmentCenter;
     }
     return _address1;
 }
@@ -254,6 +278,8 @@
         _address2.lineBreakMode = NSLineBreakByCharWrapping;
         _address2.numberOfLines = 0;
         _address2.textColor = [UIColor grayColor];
+        _address2.textAlignment = NSTextAlignmentCenter;
+
     }
     return _address2;
 }
@@ -265,6 +291,8 @@
         _address3.lineBreakMode = NSLineBreakByCharWrapping;
         _address3.numberOfLines = 0;
         _address3.textColor = [UIColor grayColor];
+        _address3.textAlignment = NSTextAlignmentCenter;
+
     }
     return _address3;
 }

@@ -33,7 +33,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.contentView.mas_left).offset(FitwidthRealValue(13));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo(CYTMainScreen_WIDTH / 3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     //日用量
@@ -42,7 +42,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.userName.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH * 2/3 - FitwidthRealValue(56))/3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     //日液位变化
@@ -51,16 +51,16 @@
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
         make.left.equalTo(self.traffic.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH * 2/3 - FitwidthRealValue(56))/3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     //差值
     [self.contentView addSubview:self.differenceValue];
     [self.differenceValue mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
-        make.right.equalTo(self.contentView.mas_right).offset(-FitwidthRealValue(13));
+        make.left.equalTo(self.liquidLevelChange.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH * 2/3 - FitwidthRealValue(56))/3);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
     }];
     
     self.line = [[UIView alloc] init];
@@ -80,7 +80,7 @@
     self.userName.text = model.all_name;
     self.traffic.text = [NSString stringWithFormat:@"%.2fm³",[model.vl doubleValue]];
     self.liquidLevelChange.text = [NSString stringWithFormat:@"%.2fmm",[model.yw_change doubleValue]];
-    self.differenceValue.text = [NSString stringWithFormat:@"%.2fmm",[model.cz doubleValue]];
+    self.differenceValue.text = [NSString stringWithFormat:@"%.2f%@",[model.cz doubleValue],@"%"];
 }
 
 - (UILabel *)userName {
@@ -90,6 +90,7 @@
         _userName.lineBreakMode = NSLineBreakByCharWrapping;
         _userName.numberOfLines = 0;
         _userName.textColor = [UIColor grayColor];
+        _userName.textAlignment = NSTextAlignmentCenter;
     }
     return _userName;
 }
@@ -101,6 +102,7 @@
         _traffic.lineBreakMode = NSLineBreakByCharWrapping;
         _traffic.numberOfLines = 0;
         _traffic.textColor = [UIColor grayColor];
+        _traffic.textAlignment = NSTextAlignmentCenter;
     }
     return _traffic;
 }
@@ -112,6 +114,7 @@
         _liquidLevelChange.lineBreakMode = NSLineBreakByCharWrapping;
         _liquidLevelChange.numberOfLines = 0;
         _liquidLevelChange.textColor = [UIColor grayColor];
+        _liquidLevelChange.textAlignment = NSTextAlignmentCenter;
     }
     return _liquidLevelChange;
 }
@@ -123,6 +126,7 @@
         _differenceValue.lineBreakMode = NSLineBreakByCharWrapping;
         _differenceValue.numberOfLines = 0;
         _differenceValue.textColor = [UIColor grayColor];
+        _differenceValue.textAlignment = NSTextAlignmentCenter;
     }
     return _differenceValue;
 }

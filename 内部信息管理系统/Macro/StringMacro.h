@@ -18,5 +18,7 @@
 #define SearchBarPlaceholder   @"搜索商品/供应商/气源地"
 
 
+#define GD_KEY                 @"0f2ca7b89d20ee5323325858210fb2fd"
+
 
 #endif /* StringMacro_h */

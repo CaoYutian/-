@@ -13,5 +13,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x5185;&#x90e8;&#x4fe1;&#x606f;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Modules/DosageAnalysis&#xff08;&#x7528;&#x91cf;&#x5206;&#x6790;&#xff09;/DosageAnalysisVC.m"
+            timestampString = "526568995.51783"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-loadData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DosageAnalysisVC loadData]"
+                  moduleName = "&#x5185;&#x90e8;&#x4fe1;&#x606f;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sunshine/Desktop/%E6%BA%90%E5%8A%A8%E5%8A%9B/%E5%86%85%E9%83%A8%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E5%86%85%E9%83%A8%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/Modules/DosageAnalysis%EF%BC%88%E7%94%A8%E9%87%8F%E5%88%86%E6%9E%90%EF%BC%89/DosageAnalysisVC.m"
+                  timestampString = "526569252.049769"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "884">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__28-[DosageAnalysisVC loadData]_block_invoke"
+                  moduleName = "&#x5185;&#x90e8;&#x4fe1;&#x606f;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sunshine/Desktop/%E6%BA%90%E5%8A%A8%E5%8A%9B/%E5%86%85%E9%83%A8%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E5%86%85%E9%83%A8%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/Modules/DosageAnalysis%EF%BC%88%E7%94%A8%E9%87%8F%E5%88%86%E6%9E%90%EF%BC%89/DosageAnalysisVC.m"
+                  timestampString = "526569252.052769"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "123">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

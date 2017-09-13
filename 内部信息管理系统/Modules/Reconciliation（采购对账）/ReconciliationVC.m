@@ -66,7 +66,7 @@
     self.searchBar.placeholder = @"车牌号/用户名";
     [self.contentView addSubview:self.searchBar];
     
-    self.titleV = [[titleView alloc] initWithFrame:CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40)) titles:@[@"车牌号",@"用户名",@"卸液量",@"液位误差"]];
+    self.titleV = [[titleView alloc] initWithFrame:CGRectMake(0, self.searchBar.bottom, CYTMainScreen_WIDTH, FitheightRealValue(40)) titles:@[@"车牌号",@"用户名",@"卸液量",@"液位误差",@"审核"]];
 
     [self.contentView addSubview:self.titleV];
     [self.contentView addSubview:self.tableView];

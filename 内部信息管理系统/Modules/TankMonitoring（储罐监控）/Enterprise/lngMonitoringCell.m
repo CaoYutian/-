@@ -48,7 +48,7 @@
     [self.contentView addSubview:self.liquidLevel];
     [self.liquidLevel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.enterPriseName.mas_bottom).offset(0);
-        make.left.equalTo(self.cumulativeDosage.mas_right).offset(FitwidthRealValue(20));
+        make.left.equalTo(self.cumulativeDosage.mas_right).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(25));
     }];
     
@@ -74,21 +74,28 @@
     lngMonitoringModel *lngMonitoring = (lngMonitoringModel *)item;
     
     self.enterPriseName.text = lngMonitoring.all_name;
-    self.cumulativeDosage.text = [NSString stringWithFormat:@"小时用量:%.2f方",[lngMonitoring.vl_hour floatValue]];
+    self.cumulativeDosage.text = [NSString stringWithFormat:@"时用量:%.2f方",[lngMonitoring.vl_hour floatValue]];
     
-    if (lngMonitoring.time.integerValue) {
-        self.liquidLevel.text = [NSString stringWithFormat:@"预估剩余时间:%.2f小时",[lngMonitoring.time floatValue]];
-    }else {
+    if (lngMonitoring.yugu_time.integerValue) {
+        self.liquidLevel.text = [NSString stringWithFormat:@"预估剩余时间:%.2f小时",[lngMonitoring.yugu_time floatValue]];
+    }else{
         self.liquidLevel.text = [NSString stringWithFormat:@"预估剩余时间:--小时"];
     }
     
-    self.state.text = lngMonitoring.flag;
-    if (!lngMonitoring.flag.integerValue) {
+    if (lngMonitoring.flag.integerValue == 0) {
         self.state.text = @"异常";
         self.state.layer.borderColor = [UIColor redColor].CGColor;
         self.state.textColor = [UIColor redColor];
-    }else {
+    }
+    if (lngMonitoring.flag.integerValue == 1){
         self.state.text = @"正常";
+        self.state.layer.borderColor = [UIColor greenColor].CGColor;
+        self.state.textColor = [UIColor greenColor];
+    }
+    if (lngMonitoring.flag.integerValue == 2) {
+        self.state.text = @"离线";
+        self.state.layer.borderColor = [UIColor grayColor].CGColor;
+        self.state.textColor = [UIColor grayColor];
     }
 }
 

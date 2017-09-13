@@ -30,9 +30,9 @@
     [self.contentView addSubview:self.plateNumbers];
     [self.plateNumbers mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(FitheightRealValue(0));
-        make.left.equalTo(self.contentView.mas_left).offset(FitwidthRealValue(13));
+        make.left.equalTo(self.contentView.mas_left).offset(FitwidthRealValue(10));
         make.height.mas_equalTo(FitheightRealValue(50));
-        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(56)) / 4);
+        make.width.mas_equalTo((CYTMainScreen_WIDTH - FitwidthRealValue(40)) / 5);
     }];
     
     //用户名
@@ -68,7 +68,6 @@
         make.height.mas_equalTo(FitheightRealValue(50));
     }];
     
-    
     self.line = [[UIView alloc] init];
     self.line.backgroundColor = MainBackgroundColor;
     [self.contentView addSubview:self.line];
@@ -103,6 +102,8 @@
         _plateNumbers.font = FitFont(14);
         _plateNumbers.textAlignment = NSTextAlignmentLeft;
         _plateNumbers.textColor = [UIColor grayColor];
+        _plateNumbers.lineBreakMode = NSLineBreakByCharWrapping;
+        _plateNumbers.numberOfLines = 0;
     }
     return _plateNumbers;
 }
